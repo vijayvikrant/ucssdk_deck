@@ -88,7 +88,7 @@
             <section><ul>
 <li>Introducing the changes<ul>
 <li>Structural changes</li>
-<li>Consistency changes</li>
+<li>Usability/Consistency changes</li>
 <li>Format changes</li>
 <li>Optimization changes</li>
 </ul>
@@ -317,7 +317,7 @@ $
 <span class="lineno">13 </span><span class="n">handle</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
 </pre></div>
 
-<h1>Output</h1>
+<h1>output</h1>
 <pre><code>1446901277/e9302814-792c-4eb6-8ed2-661505b133bb
 </code></pre></section>
             
@@ -359,7 +359,7 @@ $
 <span class="lineno">8 </span><span class="n">handle</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
 </pre></div>
 
-<h1>Output</h1>
+<h1>output</h1>
 <pre><code>Managed Object          :   OrgOrg
 --------------
 child_action                    :None
@@ -412,7 +412,7 @@ status                          :None
 <span class="lineno">8 </span><span class="n">handle</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
 </pre></div>
 
-<h1>Output</h1>
+<h1>output</h1>
 <pre><code>{
  'org-root': 
     &lt;ucssdk.mometa.org.OrgOrg.OrgOrg object at 0x109dc5f50&gt;, 
@@ -459,7 +459,7 @@ status                          :None
 <span class="lineno">8 </span><span class="n">handle</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
 </pre></div>
 
-<h1>Output</h1>
+<h1>output</h1>
 <pre><code>[&lt;ucssdk.mometa.org.OrgOrg.OrgOrg object at 0x109dc5890&gt;, 
  &lt;ucssdk.mometa.org.OrgOrg.OrgOrg object at 0x109dc5810&gt;]
 </code></pre></section>
@@ -502,7 +502,7 @@ status                          :None
 <span class="lineno">8 </span><span class="n">handle</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
 </pre></div>
 
-<h1>Output</h1>
+<h1>output</h1>
 <pre><code>{
  'OrgOrg': 
     [&lt;ucssdk.mometa.org.OrgOrg.OrgOrg object at 0x109de0150&gt;, 
@@ -688,7 +688,7 @@ status                          :None
 <span class="lineno">15 </span>    <span class="k">print</span> <span class="n">mo</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
 </pre></div>
 
-<h1>Output</h1>
+<h1>output</h1>
 <pre><code>DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
 </code></pre></section>
             
@@ -728,7 +728,7 @@ status                          :None
 <span class="lineno">5 </span>    <span class="k">print</span> <span class="n">mo</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
 </pre></div>
 
-<h1>Output</h1>
+<h1>output</h1>
 <pre><code>Filter      : (name,"demo_1")
 All         : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
 Filtered    : demo_1 demo_1_1 demo_1_2
@@ -769,7 +769,7 @@ Filtered    : demo_1 demo_1_1 demo_1_2
 <span class="lineno">5 </span>    <span class="k">print</span> <span class="n">mo</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
 </pre></div>
 
-<h1>Output</h1>
+<h1>output</h1>
 <pre><code>Filter      : (name,"demo_1") or (name, "demo_2")
 All         : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
 Filtered    : demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
@@ -810,7 +810,7 @@ Filtered    : demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
 <span class="lineno">5 </span>    <span class="k">print</span> <span class="n">mo</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
 </pre></div>
 
-<h1>Output</h1>
+<h1>output</h1>
 <pre><code>Filter      : (name,"[0-9]_1")
 All         : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
 Filtered    : demo_1_1 demo_2_1
@@ -851,7 +851,7 @@ Filtered    : demo_1_1 demo_2_1
 <span class="lineno">5 </span>    <span class="k">print</span> <span class="n">mo</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
 </pre></div>
 
-<h1>Output</h1>
+<h1>output</h1>
 <pre><code>Filter      : (name,"demo_1",type="eq")
 All         : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
 Filtered    : demo_1
@@ -892,7 +892,7 @@ Filtered    : demo_1
 <span class="lineno">5 </span>    <span class="k">print</span> <span class="n">mo</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
 </pre></div>
 
-<h1>Output</h1>
+<h1>output</h1>
 <pre><code>Filter      : (name,"DEMO",type="re", flag="I")
 All         : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
 Filtered    : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
@@ -933,7 +933,7 @@ Filtered    : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
 <span class="lineno">5 </span>    <span class="k">print</span> <span class="n">mo</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
 </pre></div>
 
-<h1>Output</h1>
+<h1>output</h1>
 <pre><code>Filter      : (name,"DEMO",type="re")
 All         : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
 Filtered    : DEMO
@@ -975,7 +975,7 @@ Filtered    : DEMO
 <span class="lineno">6 </span>    <span class="k">print</span> <span class="n">mo</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
 </pre></div>
 
-<h1>Output</h1>
+<h1>output</h1>
 <pre><code>Filter      : (name,"demo",type="re") and 
                     ((name,"demo_1") and (name, "[0-9]_1"))
 All         : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
@@ -1781,21 +1781,6 @@ Invalid Value Exception - [LsVConAssign]:
             <header><h1>convert_to_python</h1></header>
             
             
-            <section><ul>
-<li>
-<p>GUI considers a few XML snippets as secure and does not log them. So, the convert_to_python does not find the logs to do the translation. The workaround is as follows:</p>
-<ul>
-<li>Save the launch link as a file … i.e.https://<ip_or_hostname>/ucsm/ucsm.jnlp</li>
-<li>
-<p>Right click on the file, Open with notepad/vim, and add the following line after the other property definitions.</p>
-<p><code>&lt;property name="jnlp.ucsm.log.show.encrypted" value="true"/&gt;</code> </p>
-</li>
-<li>
-<p>Right click on the file,  Open with “Java™ Web Start Launcher”</p>
-</li>
-<li>After the UI launches, from a Python Shell run the convert_to_python command</li>
-</ul></section>
-            
           </div>
           <div class="presenter_notes">
             <header><h1>Presenter Notes</h1></header>
@@ -1825,15 +1810,20 @@ Invalid Value Exception - [LsVConAssign]:
             
             
             <section><ul>
-<li>On some operating systems, the program might encounter issues discovering the path to which UI logs are written.</li>
-<li>convert_to_python does not work if log path is not detected.</li>
-<li>Follow the below steps, if case of log_path issues,<ul>
-<li>$cd ~</li>
-<li>$sudo find . -name '.ucsm'</li>
-<li>./Library/Application Support/Oracle/Java/Deployment/log/.ucsm</li>
+<li>
+<p>GUI considers a few XML snippets as secure and does not log them. So, the convert_to_python does not find the logs to do the translation. The workaround is as follows:</p>
+<ul>
+<li>Save the launch link as a file … i.e.https://<ip_or_hostname>/ucsm/ucsm.jnlp</li>
+<li>
+<p>Right click on the file, Open with notepad/vim, and add the following line after the other property definitions.</p>
+<p><code>&lt;property name="jnlp.ucsm.log.show.encrypted" value="true"/&gt;</code> </p>
+</li>
+<li>
+<p>Right click on the file,  Open with "Java™ Web Start Launcher"</p>
+</li>
+<li>After the UI launches; run the convert_to_python command</li>
 </ul>
 </li>
-<li>so now you can specify log_path argument to convert_to_python to "./Library/Application Support/Oracle/Java/Deployment/log/.ucsm"</li>
 </ul></section>
             
           </div>
@@ -1861,8 +1851,26 @@ Invalid Value Exception - [LsVConAssign]:
         <div class="slide slide-42">
           <div class="inner">
             
-            <header><h1>convert_to_python demo</h1></header>
+            <header><h1>convert_to_python</h1></header>
             
+            
+            <section><ul>
+<li>On some operating systems, the program might encounter issues discovering the path to which UI logs are written.</li>
+<li>convert_to_python does not work if log path is not detected.</li>
+<li>Follow the below steps, if case of log_path issues,</li>
+</ul>
+<h1>shell</h1>
+<p><pre><code>
+$cd ~
+$sudo find . -name '.ucsm'
+    ./Library/Application Support/Oracle/Java/Deployment/log/.ucsm
+$
+</pre></code></p>
+<h1>python</h1>
+<p><pre><code>
+lpath="./Library/Application Support/Oracle/Java/Deployment/log/.ucsm"
+convert_to_python(log_path=lpath)
+</pre></code></p></section>
             
           </div>
           <div class="presenter_notes">
@@ -1919,9 +1927,6 @@ Invalid Value Exception - [LsVConAssign]:
             
             <header><h1>vvb@cisco.com</h1></header>
             
-            
-            <section></li>
-</ul></section>
             
           </div>
           <div class="presenter_notes">
@@ -2198,7 +2203,7 @@ Invalid Value Exception - [LsVConAssign]:
       
       
       <tr id="toc-row-42">
-        <th><a href="#slide42">convert_to_python demo</a></th>
+        <th><a href="#slide42">convert_to_python</a></th>
         <td><a href="#slide42">42</a></td>
       </tr>
       

@@ -4,7 +4,7 @@
 # Agenda #
 * Introducing the changes
     * Structural changes
-    * Consistency changes
+    * Usability/Consistency changes
     * Format changes
     * Optimization changes
 * Sample Scripts
@@ -74,7 +74,7 @@
     * function naming - is made more consistent
     * code separation - logical separation of code
 ---
-# Session
+# Session #
     !python
     from ucssdk.ucshandle import UcsHandle
 
@@ -91,10 +91,10 @@
     handle.logout()
 
 
-# Output
+# output #
     1446901277/e9302814-792c-4eb6-8ed2-661505b133bb
 ---
-# query_dn
+# query_dn #
     !python
     from ucssdk.ucshandle import UcsHandle
     handle = UcsHandle("10.104.223.192", "admin", "password")
@@ -105,7 +105,7 @@
 
     handle.logout()
 
-# Output
+# output #
     Managed Object          :   OrgOrg
     --------------
     child_action                    :None
@@ -120,7 +120,7 @@
     status                          :None
 
 ---
-# query_dns
+# query_dns #
     !python
     from ucssdk.ucshandle import UcsHandle
     handle = UcsHandle("10.104.223.192", "admin", "password")
@@ -131,7 +131,7 @@
 
     handle.logout()
 
-# Output
+# output #
     {
      'org-root': 
         <ucssdk.mometa.org.OrgOrg.OrgOrg object at 0x109dc5f50>, 
@@ -139,7 +139,7 @@
         <ucssdk.mometa.fabric.FabricVlan.FabricVlan object at 0x109dc5ed0>
     }
 ---
-# query_classid
+# query_classid #
     !python
     from ucssdk.ucshandle import UcsHandle
     handle = UcsHandle("10.104.223.192", "admin", "password")
@@ -150,7 +150,7 @@
 
     handle.logout()
 
-# Output
+# output #
     [<ucssdk.mometa.org.OrgOrg.OrgOrg object at 0x109dc5890>, 
      <ucssdk.mometa.org.OrgOrg.OrgOrg object at 0x109dc5810>]
     
@@ -166,7 +166,7 @@
 
     handle.logout()
 
-# Output
+# output #
     {
      'OrgOrg': 
         [<ucssdk.mometa.org.OrgOrg.OrgOrg object at 0x109de0150>, 
@@ -176,7 +176,7 @@
          <ucssdk.mometa.fabric.FabricVlan.FabricVlan object at 0x109de0110>]
      }
 ---
-# add_mo
+# add_mo #
     !python
     from ucssdk.ucshandle import UcsHandle
     handle = UcsHandle("10.104.223.192", "admin", "password")
@@ -194,7 +194,7 @@
 
     handle.logout()
 ---
-# set_mo
+# set_mo #
     !python
     from ucssdk.ucshandle import UcsHandle
     handle = UcsHandle("10.104.223.192", "admin", "password")
@@ -212,8 +212,8 @@
 
     handle.logout()
 ---
-# filter 
-# string based filter support
+# filter #
+# string based filter support 
     !python
     filter = '(prop1, value1)'
     filter = '(prop1, value1) or (prop2, value2)'
@@ -222,7 +222,7 @@
     filter = '''(prop1, value1, type="re", flag="I") and 
                 ((prop2, value2) or (prop2, value3))'''
 ---
-# filter - sample data
+# filter - sample data #
     !python
     sps = []
     from ucssdk.mometa.ls.LsServer import LsServer
@@ -239,10 +239,10 @@
     sp = handle.query_classid(class_id="LsServer")
     for mo in sp:
         print mo.name,
-# Output
+# output #
     DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
 ---
-# filter
+# filter #
 # default match is regex
     !python
     filter_str = '(name,"demo_1")'
@@ -251,12 +251,12 @@
     for mo in sp:
         print mo.name,
 
-# Output
+# output #
     Filter      : (name,"demo_1")
     All         : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
     Filtered    : demo_1 demo_1_1 demo_1_2
 ---
-# filter
+# filter #
     !python
     filter_str = '(name,"demo_1") or (name, "demo_2")'
 
@@ -264,12 +264,12 @@
     for mo in sp:
         print mo.name,
 
-# Output
+# output #
     Filter      : (name,"demo_1") or (name, "demo_2")
     All         : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
     Filtered    : demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2    
 ---
-# filter
+# filter #
     !python
     filter_str = '(name,"[0-9]_1")'
 
@@ -277,12 +277,12 @@
     for mo in sp:
         print mo.name,
 
-# Output
+# output #
     Filter      : (name,"[0-9]_1")
     All         : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
     Filtered    : demo_1_1 demo_2_1
 ---
-# filter
+# filter #
     !python
     filter_str = '(name,"demo_1",type="eq")'
 
@@ -291,12 +291,12 @@
         print mo.name,
 
 
-# Output
+# output #
     Filter      : (name,"demo_1",type="eq")
     All         : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
     Filtered    : demo_1
 ---
-# filter
+# filter #
     !python
     filter_str = '(name,"DEMO",type="re", flag="I")'
 
@@ -304,24 +304,24 @@
     for mo in sp:
         print mo.name,
 
-# Output
+# output #
     Filter      : (name,"DEMO",type="re", flag="I")
     All         : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
     Filtered    : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
 ---
-# filter
+# filter #
     !python
     filter_str = '(name,"DEMO",type="re")'
 
     sp = handle.query_classid(class_id="LsServer", filter_str=filter_str)
     for mo in sp:
         print mo.name,
-# Output
+# output #
     Filter      : (name,"DEMO",type="re")
     All         : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
     Filtered    : DEMO
 ---
-# filter
+# filter #
     !python
     filter_str = '''(name,"demo",type="re") and 
                         ((name,"demo_1") and (name, "[0-9]_1"))'''
@@ -329,13 +329,13 @@
     sp = handle.query_classid(class_id="LsServer", filter_str=filter_str)
     for mo in sp:
         print mo.name,
-# Output
+# output #
     Filter      : (name,"demo",type="re") and 
                         ((name,"demo_1") and (name, "[0-9]_1"))
     All         : DEMO demo_1 demo_1_1 demo_2_1 demo_1_2 demo_2_2
     Filtered    : demo_1_1
 ---
-# property validation at client
+# property validation at client #
     !python
     from ucssdk.mometa.ls.LsServer import LsServer
     try:
@@ -343,12 +343,12 @@
                         name="sp_demo_really_really_really_long")
     except Exception as e:
         print e
-# output
+# output #
     DEBUG:ucs:nameshould adhere to regex^[\-\.:_a-zA-Z0-9]{2,32}$
     Invalid Value Exception - [LsServer]: Prop <name>, 
                 Value<sp_demo_really_really_really_long>.
 ---
-# property validation at client
+# property validation at client #
     !python
     from ucssdk.mometa.ls.LsVConAssign import LsVConAssign
     try:
@@ -356,7 +356,7 @@
                         transport="would_produce_error", vnic_name="eth0")
     except Exception as e:
         print e
-# output
+# output #
     DEBUG:ucs:transportshould adhere to 
         regex^((fc|ethernet|defaultValue),){0,2}(fc|ethernet|defaultValue){0,1}$
     Invalid Value Exception - [LsVConAssign]: 
@@ -529,13 +529,13 @@
             sp_delete()
         handle.logout()
 ---
-# sp_assoc_deassoc with event handlers
+# sp_assoc_deassoc with event handlers #
     !python
     def main():
         sp_create()
         sp_assoc()
 
-# output
+# output #
     !python
     ucs - DEBUG - sp_create
     ucs - DEBUG - sp_assoc
@@ -627,6 +627,10 @@
     mo_1 = EpqosEgress(parent_mo_or_dn=mo, rate="line-rate",
                        host_control="none", name="", prio="best-effort",
                        burst="10240")
+
+---
+# convert_to_python #
+
 ---
 # convert_to_python #
 * GUI considers a few XML snippets as secure and does not log them. So, the convert_to_python does not find the logs to do the translation. The workaround is as follows:
@@ -637,19 +641,28 @@
         <property name="jnlp.ucsm.log.show.encrypted" value="true"/>
         ``` 
 
-    * Right click on the file,  Open with “Java™ Web Start Launcher”
-    * After the UI launches, from a Python Shell run the convert_to_python command
+    * Right click on the file,  Open with "Java™ Web Start Launcher"
+    * After the UI launches; run the convert_to_python command
+
 ---
 # convert_to_python #
 * On some operating systems, the program might encounter issues discovering the path to which UI logs are written.
 * convert_to_python does not work if log path is not detected.
 * Follow the below steps, if case of log_path issues,
-        * $cd ~
-        * $sudo find . -name '.ucsm'
-        * ./Library/Application Support/Oracle/Java/Deployment/log/.ucsm
-* so now you can specify log_path argument to convert_to_python to "./Library/Application Support/Oracle/Java/Deployment/log/.ucsm"
----
-# convert_to_python demo #
+# shell #
+<pre><code>
+$cd ~
+$sudo find . -name '.ucsm'
+    ./Library/Application Support/Oracle/Java/Deployment/log/.ucsm
+$
+</pre></code>
+
+# python #
+<pre><code>
+lpath="./Library/Application Support/Oracle/Java/Deployment/log/.ucsm"
+convert_to_python(log_path=lpath)
+</pre></code>
+
 ---
 # Thank you #
 ---
