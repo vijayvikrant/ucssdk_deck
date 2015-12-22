@@ -14,7 +14,7 @@
 ---
 # Structural changes #
 # top level #
-    $ls ucssdk
+    $ls ucsmsdk
     __init__.py            ucsfilter.py
     methodmeta             ucsfiltertype.py
     mometa                 ucsgenutils.py
@@ -31,7 +31,7 @@
 ---
 # Structural changes #
 # mo components #
-    $ls ucssdk/mometa
+    $ls ucsmsdk/mometa
     __init__.py domain      fsm         lstorage    qosclass
     aaa         dpsec       gmeta       macpool     queryresult
     adaptor     dupe        graphics    memory      security
@@ -53,7 +53,7 @@
 ---
 # Structural changes #
 # mo and mo_meta #
-    $ls ucssdk/mometa/ls
+    $ls ucsmsdk/mometa/ls
     LsAgentPolicy.py         LsServerExtension.py
     LsBinding.py             LsServerFsm.py
     LsFcLocale.py            LsServerFsmStage.py
@@ -76,7 +76,7 @@
 ---
 # Session #
     !python
-    from ucssdk.ucshandle import UcsHandle
+    from ucsmsdk.ucshandle import UcsHandle
 
     # init handle
     handle = UcsHandle("10.104.223.192", "admin", "password")
@@ -96,7 +96,7 @@
 ---
 # query_dn #
     !python
-    from ucssdk.ucshandle import UcsHandle
+    from ucsmsdk.ucshandle import UcsHandle
     handle = UcsHandle("10.104.223.192", "admin", "password")
     handle.login()
 
@@ -122,7 +122,7 @@
 ---
 # query_dns #
     !python
-    from ucssdk.ucshandle import UcsHandle
+    from ucsmsdk.ucshandle import UcsHandle
     handle = UcsHandle("10.104.223.192", "admin", "password")
     handle.login()
 
@@ -134,14 +134,14 @@
 # output #
     {
      'org-root': 
-        <ucssdk.mometa.org.OrgOrg.OrgOrg object at 0x109dc5f50>, 
+        <ucsmsdk.mometa.org.OrgOrg.OrgOrg object at 0x109dc5f50>, 
      'fabric/lan/net-default': 
-        <ucssdk.mometa.fabric.FabricVlan.FabricVlan object at 0x109dc5ed0>
+        <ucsmsdk.mometa.fabric.FabricVlan.FabricVlan object at 0x109dc5ed0>
     }
 ---
 # query_classid #
     !python
-    from ucssdk.ucshandle import UcsHandle
+    from ucsmsdk.ucshandle import UcsHandle
     handle = UcsHandle("10.104.223.192", "admin", "password")
     handle.login()
 
@@ -151,13 +151,13 @@
     handle.logout()
 
 # output #
-    [<ucssdk.mometa.org.OrgOrg.OrgOrg object at 0x109dc5890>, 
-     <ucssdk.mometa.org.OrgOrg.OrgOrg object at 0x109dc5810>]
+    [<ucsmsdk.mometa.org.OrgOrg.OrgOrg object at 0x109dc5890>, 
+     <ucsmsdk.mometa.org.OrgOrg.OrgOrg object at 0x109dc5810>]
     
 ---
 # query_classids
     !python
-    from ucssdk.ucshandle import UcsHandle
+    from ucsmsdk.ucshandle import UcsHandle
     handle = UcsHandle("10.104.223.192", "admin", "password")
     handle.login()
 
@@ -169,16 +169,16 @@
 # output #
     {
      'OrgOrg': 
-        [<ucssdk.mometa.org.OrgOrg.OrgOrg object at 0x109de0150>, 
-         <ucssdk.mometa.org.OrgOrg.OrgOrg object at 0x109de00d0>],
+        [<ucsmsdk.mometa.org.OrgOrg.OrgOrg object at 0x109de0150>, 
+         <ucsmsdk.mometa.org.OrgOrg.OrgOrg object at 0x109de00d0>],
      'FabricVlan':
-        [<ucssdk.mometa.fabric.FabricVlan.FabricVlan object at 0x109de0090>,
-         <ucssdk.mometa.fabric.FabricVlan.FabricVlan object at 0x109de0110>]
+        [<ucsmsdk.mometa.fabric.FabricVlan.FabricVlan object at 0x109de0090>,
+         <ucsmsdk.mometa.fabric.FabricVlan.FabricVlan object at 0x109de0110>]
      }
 ---
 # add_mo #
     !python
-    from ucssdk.ucshandle import UcsHandle
+    from ucsmsdk.ucshandle import UcsHandle
     handle = UcsHandle("10.104.223.192", "admin", "password")
     handle.login()
 
@@ -187,7 +187,7 @@
     # add Mo to session handler
     # commit the changes
 
-    from ucssdk.mometa.ls.LsServer import LsServer
+    from ucsmsdk.mometa.ls.LsServer import LsServer
     sp = LsServer(parent_mo_or_dn="org-root", name="sp_demo")
     handle.add_mo(sp)
     handle.commit()
@@ -196,7 +196,7 @@
 ---
 # set_mo #
     !python
-    from ucssdk.ucshandle import UcsHandle
+    from ucsmsdk.ucshandle import UcsHandle
     handle = UcsHandle("10.104.223.192", "admin", "password")
     handle.login()
 
@@ -225,7 +225,7 @@
 # filter - sample data #
     !python
     sps = []
-    from ucssdk.mometa.ls.LsServer import LsServer
+    from ucsmsdk.mometa.ls.LsServer import LsServer
     sps.append(LsServer(parent_mo_or_dn="org-root", name="demo_1"))
     sps.append(LsServer(parent_mo_or_dn="org-root", name="demo_1_1"))
     sps.append(LsServer(parent_mo_or_dn="org-root", name="demo_1_2"))
@@ -337,7 +337,7 @@
 ---
 # property validation at client #
     !python
-    from ucssdk.mometa.ls.LsServer import LsServer
+    from ucsmsdk.mometa.ls.LsServer import LsServer
     try:
         sp = LsServer(parent_mo_or_dn="org-root", 
                         name="sp_demo_really_really_really_long")
@@ -350,7 +350,7 @@
 ---
 # property validation at client #
     !python
-    from ucssdk.mometa.ls.LsVConAssign import LsVConAssign
+    from ucsmsdk.mometa.ls.LsVConAssign import LsVConAssign
     try:
         mo = LsVConAssign(parent_mo_or_dn=sp, admin_vcon="any", order="1",
                         transport="would_produce_error", vnic_name="eth0")
@@ -382,15 +382,15 @@
         # Create the SP that will be associated later
         # ###########################################
         log.debug("sp_create")
-        from ucssdk.mometa.ls.LsServer import LsServer
-        from ucssdk.mometa.lsboot.LsbootDef import LsbootDef
-        from ucssdk.mometa.lsboot.LsbootStorage import LsbootStorage
-        from ucssdk.mometa.lsboot.LsbootLocalStorage import LsbootLocalStorage
-        from ucssdk.mometa.lsboot.LsbootDefaultLocalImage import\
+        from ucsmsdk.mometa.ls.LsServer import LsServer
+        from ucsmsdk.mometa.lsboot.LsbootDef import LsbootDef
+        from ucsmsdk.mometa.lsboot.LsbootStorage import LsbootStorage
+        from ucsmsdk.mometa.lsboot.LsbootLocalStorage import LsbootLocalStorage
+        from ucsmsdk.mometa.lsboot.LsbootDefaultLocalImage import\
             LsbootDefaultLocalImage
-        from ucssdk.mometa.vnic.VnicEther import VnicEther
-        from ucssdk.mometa.vnic.VnicEtherIf import VnicEtherIf
-        from ucssdk.mometa.vnic.VnicFcNode import VnicFcNode
+        from ucsmsdk.mometa.vnic.VnicEther import VnicEther
+        from ucsmsdk.mometa.vnic.VnicEtherIf import VnicEtherIf
+        from ucsmsdk.mometa.vnic.VnicFcNode import VnicFcNode
 
         mo = LsServer(parent_mo_or_dn="org-root", vmedia_policy_name="",
                       ext_ip_state="none", bios_profile_name="",
@@ -431,7 +431,7 @@
         # associate the SP to a blade
         # ###########################################
         log.debug("sp_assoc")
-        from ucssdk.mometa.ls.LsBinding import LsBinding
+        from ucsmsdk.mometa.ls.LsBinding import LsBinding
         mo = LsBinding(parent_mo_or_dn="org-root/ls-test_sp",
                        pn_dn=blade_dn, restrict_migration="no")
         handle.add_mo(mo)
@@ -557,7 +557,7 @@
     # #####################################
     # Create a Flow Control Policy
     # #####################################
-    from ucssdk.mometa.flowctrl.FlowctrlItem import FlowctrlItem
+    from ucsmsdk.mometa.flowctrl.FlowctrlItem import FlowctrlItem
     mo = FlowctrlItem(parent_mo_or_dn="fabric/lan/flowctrl", snd="off",
                       rcv="off", name="test", prio="on")
 
@@ -565,7 +565,7 @@
     # #####################################
     # Create Dynamic vNIC Connection Policy
     # #####################################
-    from ucssdk.mometa.vnic.VnicDynamicConPolicy import \
+    from ucsmsdk.mometa.vnic.VnicDynamicConPolicy import \
                                         VnicDynamicConPolicy
     mo = VnicDynamicConPolicy(parent_mo_or_dn="org-root", name="test",
                               descr="test", adaptor_profile_name="Linux",
@@ -578,7 +578,7 @@
     # #####################################
     # Create LACP Policy
     # #####################################
-    from ucssdk.mometa.fabric.FabricLacpPolicy import FabricLacpPolicy
+    from ucsmsdk.mometa.fabric.FabricLacpPolicy import FabricLacpPolicy
     mo = FabricLacpPolicy(parent_mo_or_dn="org-root", fast_timer="fast",
                           policy_owner="local", suspend_individual="true",
                           name="test", descr="")
@@ -598,9 +598,9 @@
     # #####################################
     # Create LAN Connectivity Policy
     # #####################################
-    from ucssdk.mometa.vnic.VnicLanConnPolicy import VnicLanConnPolicy
-    from ucssdk.mometa.vnic.VnicEther import VnicEther
-    from ucssdk.mometa.vnic.VnicEtherIf import VnicEtherIf
+    from ucsmsdk.mometa.vnic.VnicLanConnPolicy import VnicLanConnPolicy
+    from ucsmsdk.mometa.vnic.VnicEther import VnicEther
+    from ucsmsdk.mometa.vnic.VnicEtherIf import VnicEtherIf
 
     mo = VnicLanConnPolicy(parent_mo_or_dn="org-root", policy_owner="local",
                            name="test", descr="test_policy")
@@ -619,8 +619,8 @@
     # #####################################
     # Create QoS Policy
     # #####################################
-    from ucssdk.mometa.epqos.EpqosDefinition import EpqosDefinition
-    from ucssdk.mometa.epqos.EpqosEgress import EpqosEgress
+    from ucsmsdk.mometa.epqos.EpqosDefinition import EpqosDefinition
+    from ucsmsdk.mometa.epqos.EpqosEgress import EpqosEgress
 
     mo = EpqosDefinition(parent_mo_or_dn="org-root", policy_owner="local",
                          name="test", descr="")
